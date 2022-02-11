@@ -102,9 +102,11 @@ def draw_path(win):
             pygame.draw.rect(win, DARK_BLUE, (n[1] * GAP_X, n[0] * GAP_Y, GAP_X, GAP_Y)) 
 
 def draw_visited_nodes(win):
-    for node in visited_nodes:
-        if node != s:
-            pygame.draw.rect(win, GRAY_BAR, (node[1] * GAP_X, node[0] * GAP_X, GAP_X, GAP_Y))
+    if len(visited_nodes) > 0:
+        win.fill(GRAY_BAR)
+        for node in visited_nodes:
+            if node != s:
+                pygame.draw.rect(win, WHITE, (node[1] * GAP_X, node[0] * GAP_X, GAP_X, GAP_Y))
 
 def draw_nodes(win):
     if start_node: # if exists
@@ -126,8 +128,8 @@ def control_bar(win, mouse_x, mouse_y, mouse_pressed):
 
 def screen_draw(win, mouse_x, mouse_y, mouse_pressed):
     win.fill(WHITE)
-    draw_nodes(win)
     draw_visited_nodes(win)
+    draw_nodes(win)
     draw_path(win)
     draw_grid(win, NODES_N)
     control_bar(win, mouse_x, mouse_y, mouse_pressed)
@@ -182,7 +184,7 @@ while run:
         if event.type == pygame.QUIT:
             run = False
         if find_but.is_clicked(mouse_x, mouse_y, event):
-            if s and e: # if start point and end point exist
+            if s and e and (s not in obstacles and e not in obstacles): # if start point and end point exist
                 path = astart(s, e, obstacles, (NODES_N, NODES_N))
                 costs = initialize_costs(NODES_N, s)
         check_current_task(mouse_x, mouse_y, event)
