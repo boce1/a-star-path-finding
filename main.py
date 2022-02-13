@@ -1,6 +1,7 @@
 import pygame
 from utils import *
 from algorithm import *
+from sys import exit
 
 pygame.init()
 
@@ -175,14 +176,14 @@ def get_path(node):
 
 
 def astart(screen_draw, start, end, obstacles, size, event):
-    global costs, frontier, visited_nodes, path, run
+    global costs, frontier, visited_nodes, path
     frontier = []
     visited_nodes = set()
     heapq.heappush(frontier, (0, start))
     while len(frontier) > 0:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                pygame.quit()
+                exit()
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
                     path = []
