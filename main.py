@@ -181,8 +181,6 @@ def astart(screen_draw, start, end, obstacles, size, event):
     heapq.heappush(frontier, (0, start))
     while len(frontier) > 0:
         for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
                     path = []
