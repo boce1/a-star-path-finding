@@ -26,14 +26,13 @@ class Button:
         if self.is_mouse_pointing(mouse_x, mouse_y):
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if event.button == 1:
-                    #print(self.role)
                     return True
         return False
 
     def animate(self, win, mouse_x, mouse_y, mouse_pressed):
         if self.is_mouse_pointing(mouse_x, mouse_y):
             if mouse_pressed[0]:
-                pygame.draw.rect(win, GRAY_BAR, (self.x, self.y, self.width, self.height))
+                pygame.draw.rect(win, GRAY, (self.x, self.y, self.width, self.height))
 
 
     def draw(self, win, mouse_x, mouse_y, mouse_pressed):

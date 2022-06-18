@@ -171,6 +171,7 @@ def get_path(node):
                 index += 1 
                 break
         pygame.draw.rect(window, DARK_BLUE, (path[index][1] * GAP_X, path[index][0] * GAP_Y, GAP_X, GAP_Y))
+        pygame.draw.rect(window, BLACK, (path[index][1] * GAP_X, path[index][0] * GAP_Y, GAP_X, GAP_Y), 1)
         pygame.display.update() # path animation
     return path[1:len(path) - 1]
 
