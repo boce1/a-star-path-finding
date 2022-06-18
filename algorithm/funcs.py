@@ -1,6 +1,5 @@
 import math
 import heapq
-from turtle import distance
 
 def initialize_costs(size, start):
     costs = [[math.inf] * size for i in range(size)]
