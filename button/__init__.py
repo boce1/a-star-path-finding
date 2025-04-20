@@ -2,7 +2,7 @@ import pygame
 from utils.var_col import *
 
 pygame.font.init()
-font = pygame.font.SysFont("Consolas", 20)
+font = pygame.font.SysFont("Consolas", 15)
 
 class Button:
     def __init__(self, x, y, message, role):
