@@ -1,6 +1,7 @@
 import pygame
 from utils import *
 from algorithm import *
+from button import *
 from sys import exit
 
 pygame.init()

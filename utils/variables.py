@@ -1,5 +1,5 @@
 
-from utils.button import font
+from button import font
 from utils.var_col import *
 
 FPS = 60
